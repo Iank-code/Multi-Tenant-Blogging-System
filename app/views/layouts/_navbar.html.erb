@@ -1,4 +1,4 @@
-<div class="flex mb-[2em]">
+<div class="flex mb-[2em] gap-6">
     <%= link_to 'Home', root_path, class: 'link' %>
     <% if current_organisation %>
         <div>
@@ -7,9 +7,9 @@
         </div>
     <% else %>
 
-        <div class="flex gap-2">
-            <%= link_to 'Register', new_organisation_registration_path, class: 'link' %>
-            <%= link_to 'Login', new_organisation_session_path, class: 'link hover:txt-blue-500' %>
+        <div class="flex gap-8">
+            <%= link_to 'Login', new_user_session_path, class: 'link' %>
+            <%= link_to 'For Organisations', new_organisation_session_path, class: 'link hover:txt-blue-500' %>
         </div>
     <% end %>
 </div>
