@@ -4,4 +4,7 @@ class Organisation < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :confirmable
+
+  # Associations
+  has_many :admins, dependent: :destroy
 end
