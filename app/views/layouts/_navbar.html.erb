@@ -1,0 +1,5 @@
+<div>
+    <%= current_organisation.email if current_organisation %>
+    <%= link_to 'Register', new_organisation_registration_path, class: 'link' %>
+    <%= link_to 'Login', new_organisation_session_path, class: 'link' %>
+</div>
