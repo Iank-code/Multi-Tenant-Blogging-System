@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'pages/landing'
   devise_for :organisations
+
+  resources :blogs
 
   get "up" => "rails/health#show", as: :rails_health_check
 

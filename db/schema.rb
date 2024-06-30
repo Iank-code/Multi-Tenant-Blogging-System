@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_29_145644) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_29_210201) do
   create_table "admins", force: :cascade do |t|
     t.integer "organisation_id", null: false
     t.string "username"
     t.string "email"
+    t.string "role", default: "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["organisation_id"], name: "index_admins_on_organisation_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.integer "organisation_id", null: false
+    t.integer "admin_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_blogs_on_admin_id"
+    t.index ["content"], name: "index_blogs_on_content", unique: true
+    t.index ["organisation_id"], name: "index_blogs_on_organisation_id"
   end
 
   create_table "organisations", force: :cascade do |t|
@@ -31,6 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_29_145644) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "role", default: "organisation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_organisations_on_confirmation_token", unique: true
@@ -53,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_29_145644) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "role", default: "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -60,4 +74,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_29_145644) do
   end
 
   add_foreign_key "admins", "organisations"
+  add_foreign_key "blogs", "admins"
+  add_foreign_key "blogs", "organisations"
 end

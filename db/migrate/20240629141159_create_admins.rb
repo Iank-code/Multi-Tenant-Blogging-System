@@ -4,6 +4,7 @@ class CreateAdmins < ActiveRecord::Migration[7.1]
       t.references :organisation, null: false, foreign_key: true
       t.string :username
       t.string :email
+      t.string :role, default: 'admin'
 
       t.timestamps
     end

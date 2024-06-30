@@ -1,0 +1,8 @@
+<%= form_with(model: blog) do |form| %>
+    <div class="flex flex-col gap-2">
+        <div class="flex flex-col">
+            <%= form.label :content, class: 'font-bold' %>
+            <%= form.text_field :content %>
+        </div>
+    </div>
+<% end %>

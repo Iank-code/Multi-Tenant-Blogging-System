@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 
-*, html{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
 }
