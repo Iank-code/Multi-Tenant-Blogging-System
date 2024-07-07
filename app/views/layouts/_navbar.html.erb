@@ -12,7 +12,7 @@
 
         <div class="flex gap-8">
             <%= link_to 'Login', new_user_session_path, class: 'hover:text-blue-500' %>
-            <%= link_to 'For Organisations', new_organisation_session_path, class: 'hover:text-blue-500' %>
+           <%= link_to 'For Organisations', new_organisation_session_path(subdomain: 'organisation'), class: 'hover:text-blue-500' %>
         </div>
     <% end %>
 </div>

@@ -6,5 +6,6 @@ class Organisation < ApplicationRecord
          :confirmable
 
   # Associations
+  has_one :account, dependent: :destroy
   has_many :admins, dependent: :destroy
 end
