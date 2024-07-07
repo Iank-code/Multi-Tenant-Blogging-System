@@ -69,3 +69,7 @@ end
 gem "tailwindcss-rails", "~> 2.6"
 
 gem "devise", "~> 4.9"
+
+gem "hotwire-livereload", "~> 1.4", :group => :development
+
+gem "webpacker", "~> 5.4"

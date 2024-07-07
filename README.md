@@ -23,3 +23,6 @@ Things you may want to cover:
 
 * ...
 # Multi-Tenant-Blogging-System
+## Configure assets
+
+            rails assets:precompile
